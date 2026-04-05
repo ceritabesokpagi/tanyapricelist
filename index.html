@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Ceritanya Wisuda</title>
+  <title>Ceritabesokpagi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -39,7 +39,7 @@
       margin-top: 15px;
     }
 
-    input {
+    input, select {
       width: 100%;
       padding: 10px;
       font-size: 14px;
@@ -69,30 +69,40 @@
 
   <div class="form-box">
     <div class="judul">
-      Hi Kak Ini Ceritanya Wisuda.<br>
-      Senang bisa bertemu di momen spesialmu,<br>
-      Kami dengan senang hati siap membantu mengabadikannya
+      Setiap janji adalah kisah yang dimulai sekali seumur hidup,<br>
+      dan kami hadir untuk mengabadikannya dalam bingkai keindahan abadi.
     </div>
 
-    <label>Nama</label>
-    <input type="text" id="nama" placeholder="Masukkan nama kamu">
+    <label>Nama </label>
+    <input type="text" id="nama" placeholder="Contoh: Andi & Sinta">
 
-    <label>Kampus</label>
-    <input type="text" id="kampus" placeholder="Nama kampus">
+    <label>Jenis Acara</label>
+    <select id="acara">
+      <option value="">Pilih jenis acara</option>
+      <option>Akad Only</option>
+      <option>Maternity</option>
+      <option>Akad & Resepsi</option>
+      <option>Prewedding</option>
+      <option>Engagement</option>
+    </select>
 
-    <label>Tanggal Wisuda</label>
+    <label>Lokasi </label>
+    <input type="text" id="lokasi" placeholder="Nama gedung / venue">
+
+    <label>Tanggal Acara</label>
     <input type="date" id="tanggal">
 
-    <button onclick="kirimWA()">Chat Mince Yaw</button>
+    <button onclick="kirimWA()">Chat Admin</button>
   </div>
 
   <script>
     function kirimWA() {
       var nama = document.getElementById("nama").value;
-      var kampus = document.getElementById("kampus").value;
+      var acara = document.getElementById("acara").value;
+      var lokasi = document.getElementById("lokasi").value;
       var tanggal = document.getElementById("tanggal").value;
 
-      if (!nama || !kampus || !tanggal) {
+      if (!nama || !acara || !lokasi || !tanggal) {
         alert("Mohon lengkapi semua data terlebih dahulu");
         return;
       }
@@ -118,15 +128,16 @@
         namaBulan[parseInt(tgl[1]) - 1] + " " +
         tgl[0];
 
-      var nomorWA = "6285129787216";
+      var nomorWA = "6285111043157";
 
       var pesan =
-        "Halo Ceritanya Wisuda\n\n" +
-        "Boleh minta info pricelist, kak?\n\n" +
-        "Nama        : " + nama + "\n" +
-        "Kampus      : " + kampus + "\n" +
-        "Tgl Wisuda  : " + tanggalFix + "\n\n" +
-        "Terima kasih, kak";
+        "Halo Kak 😊\n\n" +
+        "Saya ingin bertanya mengenai pricelist di ceritabesokpagi \n\n" +
+        "Nama Pasangan : " + nama + "\n" +
+        "Acara   : " + acara + "\n" +
+        "Lokasi  : " + lokasi + "\n" +
+        "Tanggal : " + tanggalFix + "\n\n" +
+        "Terimakasih 🙏";
 
       var urlWA =
         "https://api.whatsapp.com/send?phone=" +
